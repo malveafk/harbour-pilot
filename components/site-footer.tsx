@@ -38,7 +38,7 @@ export function SiteFooter() {
               Contatti
             </h2>
             <Registro
-              className="mt-5 normal-case"
+              className="mt-5"
               voci={[{ daFornire: "indirizzo email di contatto" }]}
             />
             <Registro

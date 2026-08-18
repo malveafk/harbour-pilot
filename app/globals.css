@@ -248,17 +248,23 @@
     background-color: var(--ground-inverse);
     color: var(--ink-inverse);
   }
-  /* Comparsa allo scorrimento. Lo stato nascosto vale solo sotto .js:
-     senza JavaScript il contenuto resta visibile. */
+  /* Comparsa allo scorrimento.
+     Lo stato nascosto e dentro @media (scripting: enabled): senza JavaScript
+     il contenuto resta visibile, e non serve nessuno script inline che
+     marchi il documento — cosi non c'e mismatch di idratazione ne
+     sfarfallio. Se un browser non conosce la feature la query non combacia,
+     e il fallback e "tutto visibile": il modo giusto di sbagliare. */
   .reveal {
     transition:
       opacity var(--motion-reveal) var(--ease-out),
       transform var(--motion-reveal) var(--ease-out);
   }
 
-  .js .reveal[data-reveal="pending"] {
-    opacity: 0;
-    transform: translateY(12px);
+  @media (scripting: enabled) {
+    .reveal[data-reveal="pending"] {
+      opacity: 0;
+      transform: translateY(12px);
+    }
   }
 }
 

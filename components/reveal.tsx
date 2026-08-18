@@ -11,9 +11,9 @@ import { cn } from "@/lib/utils";
  * pagina: un'animazione che non trasporta informazione e decorazione, e qui
  * la decorazione e il difetto specifico da evitare.
  *
- * Senza JavaScript il contenuto resta visibile: lo stato nascosto e applicato
- * solo sotto .js (classe messa dallo script inline nel layout, prima del
- * primo paint, quindi senza sfarfallio).
+ * Senza JavaScript il contenuto resta visibile: lo stato nascosto vive in
+ * @media (scripting: enabled) dentro globals.css, quindi non serve nessuno
+ * script inline e non c'e mismatch di idratazione.
  */
 export function Reveal({
   children,
