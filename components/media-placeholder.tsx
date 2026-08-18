@@ -11,20 +11,24 @@ import { cn } from "@/lib/utils";
 export function MediaPlaceholder({
   serve,
   ratio = "16 / 9",
+  fill = false,
   className,
 }: {
   /** Che materiale reale va messo qui. Scritto come richiesta, non come didascalia. */
   serve: string;
   ratio?: string;
+  /** Riempie il contenitore invece di imporre un rapporto d'aspetto. */
+  fill?: boolean;
   className?: string;
 }) {
   return (
     <div
       role="img"
       aria-label={`Segnaposto immagine. Materiale da fornire: ${serve}`}
-      style={{ aspectRatio: ratio }}
+      style={fill ? undefined : { aspectRatio: ratio }}
       className={cn(
         "flex w-full items-end border border-[var(--rule)] bg-[color-mix(in_srgb,var(--ink)_5%,transparent)] p-4 md:p-6",
+        fill && "h-full",
         className,
       )}
     >

@@ -51,3 +51,18 @@ export function Registro({
     </Tag>
   );
 }
+
+/**
+ * Buco dichiarato dentro un testo.
+ *
+ * Serve a tenere il segnaposto leggibile come richiesta precisa
+ * ("[da fornire: quale data]") invece che come riempitivo. Un segnaposto che
+ * non dice cosa manca non aiuta nessuno a colmarlo.
+ */
+export function Mancante({ cosa }: { cosa: string }) {
+  return (
+    <span className="font-data text-[0.8125em] uppercase tracking-data text-[var(--registro-fg)] underline decoration-dotted underline-offset-4">
+      [da fornire: {cosa}]
+    </span>
+  );
+}
