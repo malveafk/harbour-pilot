@@ -85,7 +85,15 @@
   --space-section:       6rem;    /* 96px  mobile */
   --space-section-lg:    10rem;   /* 160px desktop */
 
-  /* Movimento — livello "sottile". Niente parallasse, niente scroll-scrub. */
+  /* Movimento — livello "sottile": comparsa in dissolvenza e hover, nient'altro.
+     Niente parallasse, e niente scroll-scrub COME REGOLA GENERALE. Un'unica
+     eccezione, deliberata e isolata: la scena della nave in apertura, dove lo
+     scorrimento pilota la linea temporale della camera. E concessa solo li
+     perche quel volo e l'affermazione identitaria della home ("entrare in
+     porto"), non un vezzo grafico — e per questo resta confinata al hero (solo
+     desktop a movimento pieno; sotto i 768px o a movimento ridotto non viene
+     nemmeno caricata) e non fa hijack dello scroll: la pagina scorre da se, la
+     scena e solo incollata. Fuori da quel blocco, la regola vale piena. */
   --motion-reveal:       350ms;
   --motion-hover:        180ms;
   --ease-out:            cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -245,6 +253,15 @@
     --rule:        var(--rule-inverse);
     --marker:      var(--marker-inverse);
     --registro-fg: var(--ink-muted-inverse);
+    /* Anche i token di livello 3 vanno ribaltati a mano. Un token che vale
+       var(--ink) viene risolto dove e DICHIARATO, cioe su :root, non dove
+       viene usato: sotto .on-inverse continuerebbe a valere il navy. Finche
+       nessun blocco scuro conteneva la navigazione la cosa non si vedeva;
+       con l'intestazione sospesa sopra la scena, i link erano navy su navy. */
+    --nav-fg:        var(--ink-inverse);
+    --nav-fg-active: var(--marker-inverse);
+    --logo-ph-fg:    var(--ink-inverse);
+    --logo-ph-border: var(--marker-inverse);
     background-color: var(--ground-inverse);
     color: var(--ink-inverse);
   }

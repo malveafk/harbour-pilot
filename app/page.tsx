@@ -4,6 +4,7 @@ import { Section } from "@/components/section";
 import { Eyebrow } from "@/components/eyebrow";
 import { Registro, Mancante } from "@/components/registro";
 import { MediaPlaceholder } from "@/components/media-placeholder";
+import { ShipScrollScene } from "@/components/ship-scroll-scene";
 import { Reveal } from "@/components/reveal";
 import { prodottiInVetrina, vociJournal } from "@/lib/contenuti";
 
@@ -28,14 +29,14 @@ export default function Home() {
   return (
     <>
       {/* 01 — Il porto. Nessun claim sopra: la prima cosa che si vede e il
-          posto, non il marchio. */}
-      <section aria-label="Il porto di Ravenna">
-        <MediaPlaceholder
-          fill
-          serve="video o fotografia reale del porto di Ravenna, orizzontale, senza persone in primo piano"
-          className="min-h-[calc(100svh-5.5rem)] border-x-0 border-t-0"
-        />
-      </section>
+          posto, non il marchio.
+
+          La manovra che il blocco 03 racconta a parole, qui si vede: la nave
+          entra, ci si avvicina alla prua, si arriva in banchina, e alla soglia
+          dello store la scena si dissolve sulla fotografia. Su telefono e a
+          movimento ridotto il componente serve un fermo immagine e non scarica
+          niente di tridimensionale. */}
+      <ShipScrollScene />
 
       {/* 02 — La frase identitaria. Blocco navy pieno, sola tipografia. */}
       <Section ground="inverse">
