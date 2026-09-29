@@ -285,13 +285,22 @@ export const vociJournal: VoceJournal[] = [
   {
     slug: "piroscafo-grazia",
     titolo: "Il piroscafo Grazia",
-    occhiello: "Archivio storico",
+    occhiello: "Archivio di famiglia",
+    /* NON E PIU UN ESEMPIO DI FORMATO. La famiglia ha collegato questa
+       vicenda al nonno materno di Stefano Stagnaro — lo stesso uomo della
+       fotografia d'archivio in cui passa dalla nave alla pilotina. Resta
+       pero impubblicabile finche non arrivano il nome, il ruolo e una
+       fonte: una storia di famiglia raccontata a voce non e ancora un
+       documento, ed e esattamente la differenza che questo sito esiste per
+       tenere. Cosa serve: vedi il registro qui sotto. */
     estratto:
-      "Affondato nel 1939 al largo dell'Inghilterra. Esempio di formato per una scheda d'archivio: un fatto, una data, un luogo, e il documento che lo prova.",
+      "Affondato nel 1939 al largo dell'Inghilterra. A bordo c'era, secondo il racconto di famiglia, il nonno materno di Stefano Stagnaro.",
     registro: [
       "1939",
       "Al largo dell'Inghilterra",
-      { daFornire: "una fotografia o un documento: cercata, non ne esiste nessuna verificabile in pubblico dominio" },
+      { daConfermare: "il nonno materno di Stefano era a bordo" },
+      { daFornire: "nome, cognome e ruolo a bordo" },
+      { daFornire: "una fonte: documento, ritaglio, libretto di navigazione" },
     ],
     mediaServe:
       "documento o fotografia d'archivio del piroscafo, con fonte — la ricerca su Wikimedia Commons non ha prodotto nulla di attribuibile con certezza a questa nave",

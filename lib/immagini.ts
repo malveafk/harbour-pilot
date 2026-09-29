@@ -67,6 +67,9 @@ export const scatti = {
   pilotaBiscaglina: {
     file: pilotaBiscaglina,
     alt: "Un pilota sale la biscaglina lungo la fiancata di una nave, in controluce, con la propria ombra proiettata sullo scafo arrugginito.",
+    /* Chi sia questo pilota non lo sa nessuno in famiglia. Non e Stefano.
+       Finche resta senza nome non va pubblicata: e la fotografia di una
+       persona reale e non identificata. */
     registro: [
       "Salita a bordo",
       { daFornire: "porto" },
@@ -79,7 +82,12 @@ export const scatti = {
     alt: "Fotografia d'epoca, viraggio seppia: un pilota in divisa con berretto sale una biscaglina lungo la fiancata di una nave; sopra di lui un secondo uomo.",
     registro: [
       "Archivio di famiglia",
-      { daConfermare: "Bisnonno Stagnaro" },
+      /* Parentela confermata dalla famiglia: padre della nonna, quindi nonno
+         materno di Stefano Stagnaro. NON si chiama Stagnaro — quel cognome
+         arriva dal ramo paterno — e il nome proprio non e ancora stato dato.
+         Fino ad allora qui resta la parentela, che e cio che sappiamo. */
+      "Nonno materno di Stefano Stagnaro",
+      { daFornire: "nome e cognome" },
       { daFornire: "anno" },
       { daFornire: "porto" },
     ],
@@ -99,10 +107,9 @@ export const scatti = {
     file: salitaABordo,
     alt: "Vista dall'alto: un pilota con giubbotto ad alta visibilita sale a bordo mentre la pilotina corre affiancata alla nave.",
     registro: [
-      "Salita a bordo",
+      "Stefano Stagnaro",
       { daFornire: "porto" },
       { daFornire: "data" },
-      { daFornire: "nome del pilota, se pubblicabile" },
     ],
   },
 
