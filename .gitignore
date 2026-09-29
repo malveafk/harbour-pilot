@@ -42,3 +42,14 @@ next-env.d.ts
 
 # scratch
 .DS_Store
+
+# Materiale sorgente non ottimizzato: resta in locale, nel repo entrano
+# solo gli asset preparati sotto public/immagini/
+/WhatsApp Image*.jpeg
+/HP_Manuale*.pdf
+
+# lavorazioni temporanee della scroll-journey
+.tmp/
+
+# materiali di partenza: nel repo entrano solo gli asset ottimizzati
+/foto/
