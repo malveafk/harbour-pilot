@@ -4,9 +4,11 @@ import { Section } from "@/components/section";
 import { Eyebrow } from "@/components/eyebrow";
 import { Registro, Mancante } from "@/components/registro";
 import { MediaPlaceholder } from "@/components/media-placeholder";
-import { ShipScrollScene } from "@/components/ship-scroll-scene";
+import { Foto } from "@/components/foto";
+import { scatti } from "@/lib/immagini";
+import { ScrollJourney } from "@/components/scroll-journey";
 import { Reveal } from "@/components/reveal";
-import { prodottiInVetrina, vociJournal } from "@/lib/contenuti";
+import { vociJournal } from "@/lib/contenuti";
 
 /* ============================================================================
    HOMEPAGE — sette blocchi, nell'ordine deciso dal committente.
@@ -16,196 +18,184 @@ import { prodottiInVetrina, vociJournal } from "@/lib/contenuti";
    "prima sito personale, poi negozio": il navy non segue la storia, la
    interrompe due volte, e il prodotto sta in mezzo alle due interruzioni.
 
-   01 porto        immagine
-   02 claim        navy
-   03 il mestiere  cream
-   04 prodotto     cream
-   05 Stefano      navy
-   06 dal porto    cream
-   07 capsule      teal
+   01 apertura     navy
+   02 il mestiere  cream
+   03 prodotto     cream
+   04 Stefano      navy
+   05 dal porto    cream
+   06 capsule      teal
    ========================================================================= */
 
 export default function Home() {
   return (
     <>
-      {/* 01 — Il porto. Nessun claim sopra: la prima cosa che si vede e il
-          posto, non il marchio.
+      {/* 01 — L'apertura: la salita a bordo.
 
-          La manovra che il blocco 03 racconta a parole, qui si vede: la nave
-          entra, ci si avvicina alla prua, si arriva in banchina, e alla soglia
-          dello store la scena si dissolve sulla fotografia. Su telefono e a
-          movimento ridotto il componente serve un fermo immagine e non scarica
-          niente di tridimensionale. */}
-      <ShipScrollScene />
+          384 fotogrammi disegnati su un canvas mentre si scorre. La frase
+          identitaria non sta all'inizio ma in cima alla salita: prima si fa la
+          fatica, poi si ha il diritto di dirla.
 
-      {/* 02 — La frase identitaria. Blocco navy pieno, sola tipografia. */}
-      <Section ground="inverse">
-        <Container>
-          <Reveal>
-            <p className="font-display text-[clamp(3rem,11vw,9rem)] font-semibold uppercase leading-[0.92] tracking-hero">
-              Not Fashion.
-              <br />
-              Identity.
-            </p>
-            <Registro
-              className="mt-10"
-              voci={["Harbour Pilot Originals", "Ravenna", "Est. 2012"]}
-            />
-          </Reveal>
-        </Container>
-      </Section>
+          Su telefono e a movimento ridotto non si scarica nessun fotogramma e
+          si serve la fotografia vera del pilota sulla biscaglina. */}
+      <ScrollJourney />
 
-      {/* 03 — Cosa fa un pilota. Il blocco che guadagna il nome del marchio. */}
+      {/* 02 — I capi.
+
+          Quattro schede uguali invece della griglia asimmetrica di prima: con
+          fotografie vere il capo si guarda, e schede di misura diversa
+          suggerirebbero una gerarchia fra i capi che non esiste.
+
+          Le immagini sono piu piccole di prima di proposito. Sono scatti di
+          showroom su fondo a fiori, non fotografie di prodotto: ingrandite
+          portano dentro la pagina uno sfondo che contraddice tutto il resto.
+          Quando arrivano gli scatti veri si puo tornare a farle grandi. */}
       <Section>
         <Container>
-          <Grid className="items-start">
-            <div className="col-span-4 md:col-span-7">
-              <Reveal>
-                <Eyebrow>Il mestiere</Eyebrow>
+          <Reveal>
+            <div className="flex flex-wrap items-baseline justify-between gap-6">
+              <div>
+                <Eyebrow>Collezione</Eyebrow>
                 <h2 className="mt-5 text-[clamp(2rem,5vw,3.5rem)] leading-[1] tracking-section">
-                  Cosa fa un pilota del porto
+                  I capi
                 </h2>
-                <div className="mt-8 max-w-[var(--measure)] space-y-5 text-lg">
-                  <p>
-                    Il pilota sale a bordo di una nave che non ha mai comandato,
-                    in un canale che conosce a memoria, e la porta in banchina.
-                    Non e il comandante — il comando resta a bordo — e non e un
-                    rimorchiatore.
-                  </p>
-                  <p>
-                    E la persona che conosce quell&apos;acqua: profondita reali,
-                    correnti, come il vento prende le sovrastrutture, quanto
-                    spazio c&apos;e davvero fra una fiancata e la banchina. Sale
-                    con qualsiasi tempo, anche di notte, e scende quando la nave
-                    e ferma.
-                  </p>
-                </div>
-              </Reveal>
+              </div>
+              <Link
+                href="/collezioni"
+                className="font-display text-sm uppercase tracking-label text-[var(--marker)] underline underline-offset-8 transition-opacity duration-[var(--motion-hover)] hover:opacity-70"
+              >
+                Tutte le linee
+              </Link>
             </div>
-
-            <div className="col-span-4 md:col-span-5">
-              <Reveal delay={80}>
-                <figure>
-                  <MediaPlaceholder
-                    ratio="4 / 5"
-                    serve="fotografia documentaria del mestiere: salita a bordo dalla biscaglina, o la plancia durante una manovra"
-                  />
-                  <Registro
-                    as="figcaption"
-                    className="mt-4"
-                    voci={[
-                      { daFornire: "luogo" },
-                      { daFornire: "data" },
-                      { daFornire: "nave" },
-                    ]}
-                  />
-                </figure>
-              </Reveal>
-            </div>
-          </Grid>
-        </Container>
-      </Section>
-
-      {/* 04 — Prodotto. Griglia asimmetrica 2 + 1: due capi affiancati e uno a
-          piena larghezza, non tre schede uguali. Nessun prezzo: non e ancora
-          e-commerce, ma la scheda e gia sagomata per riceverne uno. */}
-      <Section>
-        <Container>
-          <Reveal>
-            <Eyebrow>Collezione</Eyebrow>
-            <h2 className="mt-5 text-[clamp(2rem,5vw,3.5rem)] leading-[1] tracking-section">
-              I capi
-            </h2>
           </Reveal>
 
           <Grid className="mt-14">
-            {prodottiInVetrina.slice(0, 2).map((prodotto, i) => (
-              <article key={prodotto.slug} className="col-span-4 md:col-span-6">
+            {(
+              [
+                "soprabitoBlu",
+                "cabanBlu",
+                "dolcevitaAvorio",
+                "girocolloNidoDApe",
+              ] as const
+            ).map((chiave, i) => (
+              <article key={chiave} className="col-span-2 md:col-span-3">
                 <Reveal delay={i * 80}>
-                  <div className="bg-[var(--card-product-bg)] p-4 md:p-6">
-                    <MediaPlaceholder
-                      ratio="4 / 5"
-                      serve={prodotto.mediaServe}
-                      className="border-[var(--card-product-rule)]"
+                  <div className="bg-[var(--card-product-bg)] p-3">
+                    <Foto
+                      scatto={chiave}
+                      ratio="3 / 4"
+                      sizes="(min-width: 768px) 22vw, 45vw"
+                      senzaRegistro
                     />
                   </div>
-                  <h3 className="mt-5 text-xl tracking-sub">
-                    {typeof prodotto.nome === "string" ? (
-                      prodotto.nome
-                    ) : (
-                      <Mancante cosa={prodotto.nome.daFornire} />
-                    )}
-                  </h3>
-                  <Registro className="mt-3" voci={prodotto.registro} />
+                  <Registro className="mt-4" voci={scatti[chiave].registro} />
                 </Reveal>
               </article>
             ))}
-
-            <article className="col-span-4 md:col-span-12">
-              <Reveal>
-                <div className="bg-[var(--card-product-bg)] p-4 md:p-6">
-                  <MediaPlaceholder
-                    ratio="21 / 9"
-                    serve={prodottiInVetrina[2].mediaServe}
-                    className="border-[var(--card-product-rule)]"
-                  />
-                </div>
-                <h3 className="mt-5 text-xl tracking-sub">
-                  {typeof prodottiInVetrina[2].nome === "string" ? (
-                    prodottiInVetrina[2].nome
-                  ) : (
-                    <Mancante cosa={prodottiInVetrina[2].nome.daFornire} />
-                  )}
-                </h3>
-                <Registro className="mt-3" voci={prodottiInVetrina[2].registro} />
-              </Reveal>
-            </article>
           </Grid>
         </Container>
       </Section>
 
-      {/* 05 — Stefano e la famiglia. Seconda interruzione navy, formato ad
-          archivio. E la sezione dove "verificabile" deve essere letteralmente
-          vero: qui il layer di registro fa il lavoro piu pesante. */}
+      {/* 03 — Le capsule.
+
+          Unico blocco teal pieno: e l'unico punto della homepage con una
+          funzione di navigazione dichiarata, e il colore lo segnala.
+
+          SUL TESTO. La prima versione diceva "Cinque linee, una pagina sola":
+          scritta quando il blocco chiudeva la homepage, suonava come un
+          congedo. Spostata a meta pagina faceva credere che il sito finisse
+          li. Qui il titolo apre invece di chiudere, e la riga sotto dice
+          cosa si trova andando avanti. */}
+      <Section ground="marker" className="py-24 lg:py-32">
+        <Container>
+          <Reveal>
+            <Grid className="items-end">
+              <div className="col-span-4 md:col-span-7">
+                <h2 className="text-[clamp(2rem,5vw,3.5rem)] leading-[1] tracking-section">
+                  Il resto
+                  <br />
+                  delle linee
+                </h2>
+                <p className="mt-6 max-w-[var(--measure)] text-lg">
+                  Oltre ai capi qui sopra ci sono Originals, Technical, Port
+                  Series, Harbour Swallow e l&apos;edizione speciale Ravenna
+                  2026. Stanno tutte su una pagina sola.
+                </p>
+              </div>
+              <div className="col-span-4 md:col-span-4 md:col-start-9">
+                <Link
+                  href="/collezioni"
+                  className="inline-block border border-current px-8 py-4 font-display text-base uppercase tracking-label transition-colors duration-[var(--motion-hover)] hover:bg-[var(--on-fill)] hover:text-[var(--marker)]"
+                >
+                  Vai alle collezioni
+                </Link>
+              </div>
+            </Grid>
+          </Reveal>
+        </Container>
+      </Section>
+      {/* 04 — Da pilota in pilota.
+
+          PERCHE IL TITOLO NON E "CHI SIAMO". Fra i siti di marchi paragonabili
+          nessuno intitola cosi il blocco in homepage: il soggetto e sempre il
+          capo, il luogo o il mestiere, mai il fondatore in prima persona. E
+          proprio quella formula a produrre la lettura "sito personale prima,
+          negozio dopo" che il brief vieta. Qui il soggetto e il mestiere che
+          passa di mano.
+
+          L'IDEA PORTANTE DEL BLOCCO. Non la biografia di una persona: la
+          storia del marchio, raccontata attraverso le generazioni che stanno
+          dietro al nome. Due documenti d'archivio, non due illustrazioni.
+
+          E il punto in cui la tesi del sito si dimostra invece di dichiararsi:
+          "autenticita verificabile" qui e letteralmente materiale di famiglia
+          con sotto scritto cosa sappiamo e cosa no. Per questo i buchi restano
+          a schermo: coprirli con prosa plausibile svuoterebbe il blocco. */}
       <Section ground="inverse">
         <Container>
-          <Grid className="items-start">
+          <Reveal>
+            <Eyebrow>Est. 2012</Eyebrow>
+            <h2 className="mt-5 text-[clamp(2rem,5vw,3.5rem)] leading-[1] tracking-section">
+              Da pilota
+              <br />
+              in pilota
+            </h2>
+          </Reveal>
+
+          <Grid className="mt-14 items-start">
+            {/* UNA fotografia, non due.
+
+                Ne avevo messe due affiancate, ma erano due uomini diversi in
+                due momenti diversi, uno dei due nemmeno identificato con
+                certezza: messe accanto si contendevano l'attenzione senza
+                costruire un confronto. Qui il lavoro non lo fa la quantita di
+                immagini, lo fa la riga di dati sotto — che nomina una persona
+                vera. Una fotografia con un nome sotto vale piu di due senza. */}
             <div className="col-span-4 md:col-span-5">
               <Reveal>
-                <figure>
-                  <MediaPlaceholder
-                    ratio="4 / 5"
-                    serve="fotografia dall'archivio di famiglia — Stefano al lavoro, oppure una foto storica di famiglia"
-                  />
-                  <Registro
-                    as="figcaption"
-                    className="mt-4"
-                    voci={[
-                      { daFornire: "chi e ritratto" },
-                      { daFornire: "anno" },
-                      { daFornire: "luogo" },
-                    ]}
-                  />
-                </figure>
+                <Foto
+                  scatto="archivioTimoneria"
+                  ratio="4 / 5"
+                  sizes="(min-width: 768px) 40vw, 100vw"
+                />
               </Reveal>
             </div>
 
             <div className="col-span-4 md:col-span-6 md:col-start-7">
               <Reveal delay={80}>
-                <Eyebrow>2012</Eyebrow>
-                <h2 className="mt-5 text-[clamp(2rem,5vw,3.5rem)] leading-[1] tracking-section">
-                  Stefano Stagnaro
-                </h2>
-                <div className="mt-8 max-w-[var(--measure)] space-y-5 text-lg">
+                <div className="max-w-[var(--measure)] space-y-4 text-lg">
                   <p>
                     Harbour Pilot nasce nel 2012 da Stefano Stagnaro, pilota del
-                    porto di Ravenna, in una famiglia legata al mare.
+                    porto di Ravenna, in una famiglia legata al mare da piu
+                    generazioni.
                   </p>
                   <p className="text-[var(--ink-muted)]">
-                    <Mancante cosa="il racconto in prima persona: com'e nato il marchio nel 2012, cosa c'era prima, perche" />
+                    <Mancante cosa="la storia del marchio in prima persona: perche nel 2012, cosa c'era prima, da quale bisogno concreto e nato il primo capo" />
                   </p>
                   <p className="text-[var(--ink-muted)]">
-                    <Mancante cosa="i nomi e i ruoli reali della famiglia, con anni e porti, verificabili" />
+                    <Mancante cosa="cosa vuol dire Street Heritage detto da voi, non come categoria di settore" />
+                  </p>
+                  <p className="text-[var(--ink-muted)]">
+                    <Mancante cosa="anni e porti delle tre generazioni, verificabili uno per uno" />
                   </p>
                 </div>
               </Reveal>
@@ -214,7 +204,7 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* 06 — Dal porto. Anteprima del Journal: rimanda, non racconta. */}
+      {/* 05 — Dal porto. Anteprima del Journal: rimanda, non racconta. */}
       <Section>
         <Container>
           <Reveal>
@@ -235,7 +225,9 @@ export default function Home() {
           </Reveal>
 
           <Grid className="mt-14">
-            {vociJournal.map((voce, i) => (
+            {/* Tre, non tutte: la home rimanda al Journal, non lo sostituisce.
+               Le altre voci restano in lib/contenuti.ts e vivono su /journal. */}
+            {vociJournal.slice(0, 3).map((voce, i) => (
               <article key={voce.slug} className="col-span-4 md:col-span-4">
                 <Reveal delay={i * 80}>
                   <MediaPlaceholder ratio="3 / 2" serve={voce.mediaServe} />
@@ -251,36 +243,6 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* 07 — Le capsule. Unico blocco teal pieno: e l'unico punto della
-          homepage con una funzione di navigazione dichiarata, e il colore
-          lo segnala. */}
-      <Section ground="marker" className="py-24 lg:py-32">
-        <Container>
-          <Reveal>
-            <Grid className="items-end">
-              <div className="col-span-4 md:col-span-7">
-                <h2 className="text-[clamp(2rem,5vw,3.5rem)] leading-[1] tracking-section">
-                  Cinque linee,
-                  <br />
-                  una pagina sola
-                </h2>
-                <p className="mt-6 max-w-[var(--measure)] text-lg">
-                  Originals, Technical, Port Series, Harbour Swallow e
-                  l&apos;edizione speciale Ravenna 2026.
-                </p>
-              </div>
-              <div className="col-span-4 md:col-span-4 md:col-start-9">
-                <Link
-                  href="/collezioni"
-                  className="inline-block border border-current px-8 py-4 font-display text-base uppercase tracking-label transition-colors duration-[var(--motion-hover)] hover:bg-[var(--on-fill)] hover:text-[var(--marker)]"
-                >
-                  Vai alle collezioni
-                </Link>
-              </div>
-            </Grid>
-          </Reveal>
-        </Container>
-      </Section>
     </>
   );
 }
