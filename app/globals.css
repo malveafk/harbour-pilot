@@ -65,6 +65,7 @@
   /* Tipografia — i tre ruoli */
   --font-display:        var(--font-oswald);
   --font-body:           var(--font-barlow);
+  --font-condensed:      var(--font-barlow-condensed);
   --font-data:           var(--font-plex-mono);
 
   /* Tracking: scala all'INVERSO del corpo. Largo sulle etichette piccole,
@@ -107,9 +108,6 @@
   --registro-fg-inverse:  var(--ink-muted-inverse);
   --registro-tracking:    var(--tracking-data);
 
-  --logo-ph-bg:           transparent;
-  --logo-ph-fg:           var(--ink);
-  --logo-ph-border:       var(--marker);
 
   --nav-fg:               var(--ink);
   --nav-fg-active:        var(--marker);
@@ -171,6 +169,7 @@
 
   --font-display:             var(--font-oswald);
   --font-body:                var(--font-barlow);
+  --font-condensed:           var(--font-barlow-condensed);
   --font-data:                var(--font-plex-mono);
 
   --tracking-hero:            var(--tracking-hero);
@@ -260,8 +259,6 @@
        con l'intestazione sospesa sopra la scena, i link erano navy su navy. */
     --nav-fg:        var(--ink-inverse);
     --nav-fg-active: var(--marker-inverse);
-    --logo-ph-fg:    var(--ink-inverse);
-    --logo-ph-border: var(--marker-inverse);
     background-color: var(--ground-inverse);
     color: var(--ink-inverse);
   }

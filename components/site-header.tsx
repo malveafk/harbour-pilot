@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Container } from "@/components/container";
-import { LogoPlaceholder } from "@/components/logo-placeholder";
+import { Logo } from "@/components/logo";
 
 const navigazione = [
   { href: "/collezioni", label: "Collezioni" },
@@ -90,7 +90,23 @@ export function SiteHeader() {
     >
       <Container className="flex items-center justify-between gap-6 py-4">
         <Link href="/" aria-label="Harbour Pilot, torna alla home">
-          <LogoPlaceholder variant="lockup" />
+          {/* Il marchio cambia variante col fondo: su navy la sola versione
+              ammessa e la monocromatica chiara (teal e maroon su navy stanno
+              sotto soglia di contrasto). Il nome accessibile e gia sul Link,
+              quindi qui il marchio e decorativo. */}
+          <span
+            /* Sulla home il valore lo scrive la sequenza d'apertura: il
+               marchio della testata resta fuori finche quello grande e al
+               centro. Altrove la variabile non esiste e vale 1. */
+            style={{ opacity: "var(--marchio-testata, 1)" }}
+            className="block transition-opacity duration-[var(--motion-hover)]"
+          >
+            <Logo
+              variante={sopraFondoScuro ? "chiaro" : "primario"}
+              titolo=""
+              className="h-10 w-auto md:h-12"
+            />
+          </span>
         </Link>
 
         <div className="flex items-center gap-6 md:gap-10">

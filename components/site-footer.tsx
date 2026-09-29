@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Container, Grid } from "@/components/container";
-import { LogoPlaceholder } from "@/components/logo-placeholder";
+import { Logo } from "@/components/logo";
 import { Registro } from "@/components/registro";
 
 export function SiteFooter() {
@@ -9,7 +9,8 @@ export function SiteFooter() {
       <Container className="py-[var(--space-section)]">
         <Grid>
           <div className="col-span-4 md:col-span-4">
-            <LogoPlaceholder className="max-w-52" />
+            {/* Fondo navy (.on-inverse sul footer) -> variante chiara. */}
+            <Logo variante="chiaro" className="w-36 md:w-44" />
           </div>
 
           <div className="col-span-4 md:col-span-4 md:col-start-6">

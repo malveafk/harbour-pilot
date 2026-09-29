@@ -1,14 +1,24 @@
 import type { Metadata } from "next";
-import { Oswald, Barlow, IBM_Plex_Mono } from "next/font/google";
+import {
+  Oswald,
+  Barlow,
+  Barlow_Condensed,
+  IBM_Plex_Mono,
+} from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
-/* I tre ruoli tipografici della direzione di design.
-   Display: Oswald, solo maiuscolo, per titoli ed elementi identitari.
-   Testo:   Barlow, sorella non condensed di Barlow Condensed. Oswald da solo
-            non regge i paragrafi (condensed, aperture strette).
-   Registro: IBM Plex Mono, il layer dei metadati verificabili. */
+/* I quattro ruoli tipografici.
+   Display:   Oswald, solo maiuscolo, per titoli ed elementi identitari.
+   Testo:     Barlow, sorella non condensed di Barlow Condensed. Oswald da solo
+              non regge i paragrafi (condensed, aperture strette).
+   Condensed: Barlow Condensed, per badge ed etichette secondarie. NON
+              sostituisce Oswald: serve a separare i titoli dalle etichette
+              minori, che prima competevano con loro usando lo stesso
+              carattere a corpo piccolo. Stessa famiglia del testo, quindi si
+              accorda con Barlow senza aggiungere una voce estranea.
+   Registro:  IBM Plex Mono, il layer dei metadati verificabili. */
 const oswald = Oswald({
   variable: "--font-oswald",
   subsets: ["latin"],
@@ -20,6 +30,13 @@ const barlow = Barlow({
   variable: "--font-barlow",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
+  display: "swap",
+});
+
+const barlowCondensed = Barlow_Condensed({
+  variable: "--font-barlow-condensed",
+  subsets: ["latin"],
+  weight: ["500", "600"],
   display: "swap",
 });
 
@@ -43,7 +60,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="it"
-      className={`${oswald.variable} ${barlow.variable} ${plexMono.variable} h-full`}
+      className={`${oswald.variable} ${barlow.variable} ${barlowCondensed.variable} ${plexMono.variable} h-full`}
     >
       <body className="flex min-h-full flex-col">
         <a
